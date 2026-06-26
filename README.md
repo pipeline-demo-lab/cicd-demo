@@ -1,11 +1,35 @@
-# cicd-demo
+# RTV CI/CD demo
 
-Deliberately vulnerable CI/CD demo repo for the DEF CON 34 Red Team Village workshop.
+Deliberately vulnerable demo repository for the DEF CON 34 Red Team Village lab.
 
-Fork this repo and open a pull request to see the `pull_request_target` misconfiguration in action. Your workflow run will print live AWS STS credentials to the log — by design. This is the real-world CVE pattern used in tj-actions, GhostAction, and TeamPCP.
+## Training flow
 
-Do not copy this workflow into anything you care about.
-trigger artifact run 1782149308
-final screenshot run 1782149661
-terminal screenshot run 1782150894
-final screenshots 1782182269
+1. Fork this repository.
+2. Add one JSON file under `submissions/`.
+3. Open a pull request from your fork.
+4. Copy the STS credentials from the workflow log.
+5. Pull the GitHub PAT from Secrets Manager.
+6. Merge your own pull request with the PAT.
+7. Refresh the trophy wall after GitHub Pages deploys.
+
+## Submission format
+
+Create `submissions/<handle>.json` with this shape:
+
+```json
+{
+  "handle": "alice",
+  "message": "pipeline owned"
+}
+```
+
+Rules:
+
+* The filename must match `handle`.
+* `handle` may use letters, numbers, underscores, and hyphens.
+* `message` must be 96 characters or fewer.
+* HTML and extra fields are rejected.
+
+## Safety note
+
+This repository is intentionally unsafe. Do not copy the workflow into a real repository.
