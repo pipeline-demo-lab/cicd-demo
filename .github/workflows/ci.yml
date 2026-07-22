@@ -20,6 +20,8 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
+          # Required opt-in: this lab intentionally demonstrates the pwn-request pattern.
+          allow-unsafe-pr-checkout: true
 
       - name: Resolve handle-scoped PR script
         id: pr_step
